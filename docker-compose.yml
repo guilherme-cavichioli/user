@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: "senha"
+      POSTGRES_DB: "user-db"
+    volumes:
+      - /pgdata:/var/lib/postgresql/data
+    networks:
+      - cavichioli-network
+  user:
+    build: .
+    environment:
+      HOST_DB: postgres
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres
+    networks:
+      - cavichioli-network
+networks:
+  cavichioli-network:
+    driver: bridge
