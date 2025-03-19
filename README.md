@@ -1,6 +1,6 @@
 # User
 ## Definition
-Users crud project using postgres relational database with unit tests and integrated tests using h2 for company Itau.
+Users crud project using postgres relational database with unit tests and integrated tests using h2.
 
 **Programming language:** Java 11
 
